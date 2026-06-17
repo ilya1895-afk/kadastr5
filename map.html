@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Публичная кадастровая карта Тамбова и области: поиск участков и ОКС.">
+  <title>Кадастровая карта · ООО Тамбов Кадастр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ООО Тамбов Кадастр — на главную">
+        <img class="logo-img" src="img/logo-ooo-tk.svg" width="44" height="44" alt="" decoding="async">
+        <span class="logo-text">
+          <span class="logo-title">ООО Тамбов Кадастр</span>
+          <span class="logo-sub">Тамбовская область</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Главная</a></li>
+          <li><a href="map.html" class="nav-link" aria-current="page">Карта</a></li>
+          <li><a href="spatial.html" class="nav-link">Пространственные данные</a></li>
+          <li><a href="info.html" class="nav-link">Информация</a></li>
+          <li><a href="support.html" class="nav-link">Поддержка</a></li>
+          <li><a href="cabinet.html" class="nav-link">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-top: 1.5rem;">
+      <div class="container">
+        <header class="section-head">
+          <h1>Публичная кадастровая карта</h1>
+          <p>Поиск земельных участков и объектов капитального строительства, просмотр границ, кадастровой стоимости и статуса. Инструменты измерения расстояний и печати фрагмента.</p>
+        </header>
+
+        <div class="map-toolbar card">
+          <div class="map-toolbar-row">
+            <div class="search-block">
+              <label class="field field--inline">
+                <span class="field-label sr-only">Поиск по карте</span>
+                <input type="search" id="mapSearchInput" class="input" placeholder="Адрес, кадастровый номер или координаты">
+              </label>
+              <button type="button" class="btn btn--secondary btn--ripple" id="mapSearchBtn">Искать</button>
+            </div>
+            <div class="map-tools">
+              <button type="button" class="btn btn--tool btn--ripple" id="toolMeasure" aria-pressed="false" title="Измерить расстояние">
+                <span class="tool-ico" aria-hidden="true">↔</span> Измерение
+              </button>
+              <button type="button" class="btn btn--tool btn--ripple" id="toolClearMeasure" hidden>Очистить линию</button>
+              <button type="button" class="btn btn--tool btn--ripple" id="toolShare" title="Поделиться видом карты">
+                <span class="tool-ico" aria-hidden="true">⎘</span> Ссылка
+              </button>
+              <button type="button" class="btn btn--tool btn--ripple" id="toolPrint" title="Печать фрагмента">
+                <span class="tool-ico" aria-hidden="true">⎙</span> Печать
+              </button>
+            </div>
+          </div>
+          <div class="map-toolbar-row map-toolbar-row--secondary">
+            <span class="measure-hint" id="measureHint" hidden>Кликайте по карте, чтобы построить линию. Двойной клик по карте — завершить измерение.</span>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <div class="map-wrap card" id="mapWrap">
+            <div id="cadastreMap" class="leaflet-map" role="application" aria-label="Интерактивная карта: Тамбов и область"></div>
+            <div class="map-legend">
+              <span class="legend-dot legend-dot--plot"></span> Земельный участок
+              <span class="legend-dot legend-dot--building"></span> ОКС
+            </div>
+          </div>
+          <aside class="map-sidebar card" aria-labelledby="sidebar-title">
+            <h3 id="sidebar-title">Сведения об объекте</h3>
+            <div id="objectDetails" class="object-details">
+              <p class="muted">Выберите маркер на карте или выполните поиск.</p>
+            </div>
+            <div class="sidebar-actions">
+              <button type="button" class="btn btn--primary btn--full btn--ripple" id="btnDownloadPdf" disabled title="Скачать сведения об объекте в PDF">
+                <span class="tool-ico" aria-hidden="true">⭳</span> Скачать PDF
+              </button>
+              <button type="button" class="btn btn--secondary btn--full btn--ripple" id="btnRequestExtract" disabled>Запросить выписку ЕГРН</button>
+              <button type="button" class="btn btn--outline btn--full btn--ripple" id="btnCertificate" disabled>Справка о кадастровой стоимости</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ООО Тамбов Кадастр</strong>
+        <p class="small muted">Информационный портал. Не заменяет официальные ресурсы Росреестра и органов власти.</p>
+      </div>
+      <nav aria-label="Нижнее меню">
+        <ul class="footer-nav">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="spatial.html">Пространственные данные</a></li>
+          <li><a href="info.html">Информация</a></li>
+          <li><a href="support.html">Поддержка</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pdf-utils.js"></script>
+  <script src="js/map-app.js"></script>
+</body>
+</html>

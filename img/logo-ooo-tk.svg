@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="tkGrad" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#efc0d4"/>
+      <stop offset="1" stop-color="#8b5a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#tkGrad)"/>
+  <!-- условный участок / границы -->
+  <path d="M18 46L30 22l16 8-4 22H18V46z" stroke="rgba(255,255,255,0.95)" stroke-width="2.2" stroke-linejoin="round" fill="rgba(255,255,255,0.1)"/>
+  <!-- маркер точки на карте -->
+  <circle cx="32" cy="36" r="5" fill="#fff" opacity="0.95"/>
+  <circle cx="32" cy="36" r="2" fill="#c989a8"/>
+</svg>

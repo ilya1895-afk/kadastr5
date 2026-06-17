@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Поддержка ООО «Тамбов Кадастр»: телефоны, онлайн-чат, частые вопросы и обратная связь.">
+  <title>Поддержка · ООО Тамбов Кадастр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ООО Тамбов Кадастр — на главную">
+        <img class="logo-img" src="img/logo-ooo-tk.svg" width="44" height="44" alt="" decoding="async">
+        <span class="logo-text">
+          <span class="logo-title">ООО Тамбов Кадастр</span>
+          <span class="logo-sub">Тамбовская область</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Главная</a></li>
+          <li><a href="map.html" class="nav-link">Карта</a></li>
+          <li><a href="spatial.html" class="nav-link">Пространственные данные</a></li>
+          <li><a href="info.html" class="nav-link">Информация</a></li>
+          <li><a href="support.html" class="nav-link" aria-current="page">Поддержка</a></li>
+          <li><a href="cabinet.html" class="nav-link">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section section--alt" style="padding-top: 1.5rem;">
+      <div class="container">
+        <header class="section-head">
+          <h1>Поддержка</h1>
+          <p class="support-page-intro">Свяжитесь с нами по телефону, в онлайн-чате или через форму — поможем с порталом, картой и консультациями. Ниже собраны ответы на частые вопросы.</p>
+        </header>
+
+        <nav class="support-quickbar" aria-label="Быстрые разделы">
+          <a href="#phones">Телефоны</a>
+          <a href="#chat">Онлайн-чат</a>
+          <a href="#faq">Вопросы и ответы</a>
+          <a href="#feedback">Обратная связь</a>
+        </nav>
+
+        <div class="support-layout support-layout--split">
+          <section id="phones" class="card support-block" aria-labelledby="phones-title">
+            <h2 id="phones-title">Телефоны службы поддержки</h2>
+            <p class="muted" style="margin-top:0;">Нажмите на номер, чтобы позвонить с мобильного устройства.</p>
+            <div id="supportPhonesMount"></div>
+            <noscript>
+              <p class="support-schedule"><strong>График:</strong> Пн–Пт: 9:00–18:00. Сб, Вс — выходной.</p>
+              <ul class="support-phone-list">
+                <li class="support-phone-item card">
+                  <a class="support-phone-tel" href="tel:+74752550011">+7 (4752) 55-00-11</a>
+                </li>
+                <li class="support-phone-item card support-phone-item--accent">
+                  <a class="support-phone-tel" href="tel:+78005550123">8 (800) 555-01-23</a> <span class="muted">(бесплатно по РФ)</span>
+                </li>
+              </ul>
+            </noscript>
+          </section>
+
+          <section id="chat" class="card support-block" aria-labelledby="chat-title">
+            <h2 id="chat-title">Онлайн-чат</h2>
+            <p id="supportChatWelcome" class="support-chat-welcome" role="status" aria-live="polite"></p>
+            <h3 class="faq-category-title" style="margin-top:0;">Кто обрабатывает обращения</h3>
+            <ul id="supportChatTeam" class="support-team-list"></ul>
+
+            <div id="supportLiveChat" class="support-live-chat" aria-label="Диалог с поддержкой">
+              <div class="support-live-chat-head">
+                <span class="support-live-chat-badge" aria-hidden="true"></span>
+                <span>Чат</span>
+                <span class="support-live-chat-hint muted">Ответы-автоподсказки; диалог сохраняется до закрытия вкладки</span>
+              </div>
+              <div class="support-live-chat-messages" id="supportChatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
+              <p class="support-live-chat-typing muted" id="supportChatTyping" hidden>Служба поддержки печатает…</p>
+              <form class="support-live-chat-form" id="supportChatForm" autocomplete="off">
+                <label class="sr-only" for="supportChatInput">Ваше сообщение</label>
+                <input type="text" id="supportChatInput" class="input" placeholder="Напишите сообщение и нажмите «Отправить»" maxlength="2000">
+                <button type="submit" class="btn btn--primary btn--ripple">Отправить</button>
+              </form>
+            </div>
+
+            <div id="supportWidgetSlot" class="support-widget-slot" hidden aria-label="Внешний виджет чата"></div>
+          </section>
+        </div>
+
+        <section id="faq" class="section" style="padding-bottom:0;" aria-labelledby="faq-title">
+          <h2 id="faq-title">Часто задаваемые вопросы</h2>
+          <p class="muted">Вопросы сгруппированы по темам. Введите слово в поиск — останутся подходящие блоки и пункты.</p>
+          <div class="support-faq-toolbar">
+            <label class="field">
+              <span class="field-label" for="supportFaqSearch">Поиск по вопросам и ответам</span>
+              <input type="search" id="supportFaqSearch" class="input input--lg" placeholder="Например: карта, выписка, печать" autocomplete="off">
+            </label>
+          </div>
+          <div id="supportFaqMount" class="support-faq-stack"></div>
+          <p id="supportFaqEmpty" class="support-faq-empty" hidden>Ничего не найдено. Попробуйте другой запрос или напишите нам через форму ниже.</p>
+        </section>
+
+        <section id="feedback" class="section" aria-labelledby="feedback-title">
+          <div class="card support-form-card">
+            <h2 id="feedback-title">Не нашли ответ?</h2>
+            <p class="muted">Заполните форму — ответим на электронную почту или перезвоним в рабочее время.</p>
+            <form id="supportFeedbackForm" class="support-form-grid support-form-grid--2" novalidate>
+              <label class="field">
+                <span class="field-label">Ваше имя</span>
+                <input type="text" name="name" class="input" required autocomplete="name" placeholder="Иван Иванов">
+              </label>
+              <label class="field">
+                <span class="field-label">Телефон</span>
+                <input type="tel" name="phone" class="input" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+              </label>
+              <label class="field field--full">
+                <span class="field-label">Электронная почта</span>
+                <input type="email" name="email" class="input" required autocomplete="email" placeholder="you@example.ru">
+              </label>
+              <label class="field field--full">
+                <span class="field-label">Тема</span>
+                <select name="topic" class="input" required>
+                  <option value="">Выберите тему</option>
+                  <option value="portal">Портал и карта</option>
+                  <option value="tech">Техническая проблема</option>
+                  <option value="services">Заказ услуг</option>
+                  <option value="other">Другое</option>
+                </select>
+              </label>
+              <label class="field field--full">
+                <span class="field-label">Сообщение</span>
+                <textarea name="message" class="input" required placeholder="Опишите ситуацию или вопрос"></textarea>
+              </label>
+              <label class="checkbox field--full">
+                <input type="checkbox" name="consent" value="1" required>
+                <span>Согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности</span>
+              </label>
+              <div class="field--full">
+                <button type="submit" class="btn btn--primary btn--ripple">Отправить</button>
+              </div>
+            </form>
+            <p class="fine-print" style="margin-top:1rem;margin-bottom:0;">Форма не отправляет данные на сервер автоматически. Для рабочей версии подключите обработчик на бэкенде или сервис рассылки.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ООО Тамбов Кадастр</strong>
+        <p class="small muted">Информационный портал. Не заменяет официальные ресурсы Росреестра и органов власти.</p>
+      </div>
+      <nav aria-label="Нижнее меню">
+        <ul class="footer-nav">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="map.html">Карта</a></li>
+          <li><a href="spatial.html">Пространственные данные</a></li>
+          <li><a href="info.html">Информация</a></li>
+          <li><a href="support.html">Поддержка</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- Пример подключения JivoSite (раскомментируйте и подставьте свой widget id):
+  <script src="//code.jivosite.com/widget/XXXXXXXXXX" async></script>
+  -->
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/support-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Личный кабинет ООО «Тамбов Кадастр»: объекты, заявления, уведомления, документы, история.">
+  <title>Личный кабинет · ООО Тамбов Кадастр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ООО Тамбов Кадастр — на главную">
+        <img class="logo-img" src="img/logo-ooo-tk.svg" width="44" height="44" alt="" decoding="async">
+        <span class="logo-text">
+          <span class="logo-title">ООО Тамбов Кадастр</span>
+          <span class="logo-sub">Тамбовская область</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Главная</a></li>
+          <li><a href="map.html" class="nav-link">Карта</a></li>
+          <li><a href="spatial.html" class="nav-link">Пространственные данные</a></li>
+          <li><a href="info.html" class="nav-link">Информация</a></li>
+          <li><a href="support.html" class="nav-link">Поддержка</a></li>
+          <li><a href="cabinet.html" class="nav-link" aria-current="page">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="cabinet-main">
+    <section class="section section--alt" style="padding-top: 1.5rem;">
+      <div class="container container--cabinet">
+        <header class="section-head">
+          <h1>Личный кабинет</h1>
+          <p class="muted cabinet-lead">Доступ к сведениям о ваших объектах, подача заявлений, уведомления, документы и журнал действий. Учебный макет: пример данных, без реальной интеграции с ЕСИА и ЕГРН.</p>
+        </header>
+
+        <div id="cabinetAuth" class="cabinet-auth card">
+          <h2 class="cabinet-auth-title">Вход в кабинет</h2>
+          <div class="cabinet-auth-grid">
+            <div class="cabinet-auth-block">
+              <h3>Госуслуги (ЕСИА)</h3>
+              <p class="muted">Для продакшена предусмотрена интеграция с порталом государственных услуг: вход по подтверждённой учётной записи, без отдельной регистрации на сайте компании.</p>
+              <div class="cabinet-auth-actions">
+                <a class="btn btn--outline btn--ripple" href="https://www.gosuslugi.ru/" target="_blank" rel="noopener noreferrer">Портал Госуслуг</a>
+                <button type="button" class="btn btn--primary btn--ripple" id="cabinetLoginGosuslugi">Войти через Госуслуги</button>
+              </div>
+            </div>
+            <div class="cabinet-auth-block">
+              <h3>Вход по учётной записи портала</h3>
+              <p class="muted">Быстрый просмотр интерфейса кабинета без внешней авторизации.</p>
+              <button type="button" class="btn btn--secondary btn--ripple" id="cabinetLoginPortal">Войти</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="cabinetDashboard" class="cabinet-dashboard" hidden>
+          <div class="cabinet-userbar card">
+            <div class="cabinet-userbar-info">
+              <strong id="cabinetUserDisplay">Пользователь</strong>
+              <span id="cabinetAuthMethod" class="cabinet-badge"></span>
+            </div>
+            <button type="button" class="btn btn--ghost btn--small" id="cabinetLogout">Выйти</button>
+          </div>
+
+          <div class="cabinet-tabs" role="tablist" aria-label="Разделы кабинета">
+            <button type="button" class="cabinet-tab is-active" role="tab" aria-selected="true" aria-controls="cabinetPanelObjects" id="tabObjects" data-panel="cabinetPanelObjects">Объекты</button>
+            <button type="button" class="cabinet-tab" role="tab" aria-selected="false" aria-controls="cabinetPanelApplications" id="tabApplications" data-panel="cabinetPanelApplications">Заявления</button>
+            <button type="button" class="cabinet-tab" role="tab" aria-selected="false" aria-controls="cabinetPanelNotify" id="tabNotify" data-panel="cabinetPanelNotify">Уведомления</button>
+            <button type="button" class="cabinet-tab" role="tab" aria-selected="false" aria-controls="cabinetPanelDocs" id="tabDocs" data-panel="cabinetPanelDocs">Документы</button>
+            <button type="button" class="cabinet-tab" role="tab" aria-selected="false" aria-controls="cabinetPanelHistory" id="tabHistory" data-panel="cabinetPanelHistory">История</button>
+          </div>
+
+          <div class="cabinet-panels">
+            <div id="cabinetPanelObjects" class="cabinet-panel is-active" role="tabpanel" aria-labelledby="tabObjects">
+              <h2 class="cabinet-panel-title">Объекты недвижимости</h2>
+              <p class="muted">Список привязанных к учётной записи объектов. На публичной карте можно проверить расположение и справочные сведения.</p>
+              <div class="cabinet-table-wrap">
+                <table class="cabinet-table">
+                  <thead>
+                    <tr>
+                      <th>Кадастровый номер</th>
+                      <th>Адрес</th>
+                      <th>Площадь</th>
+                      <th>Кадастровая стоимость</th>
+                      <th>Права</th>
+                      <th>Обременения</th>
+                      <th>Карта</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cabinetObjectsBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="cabinetPanelApplications" class="cabinet-panel" role="tabpanel" aria-labelledby="tabApplications" hidden>
+              <h2 class="cabinet-panel-title">Заявления и запросы</h2>
+              <p class="muted">Подача заявлений на кадастровый учёт, регистрацию прав, получение сведений из ЕГРН и отслеживание статуса.</p>
+
+              <div class="card card--inset cabinet-form-card">
+                <h3 class="cabinet-subtitle">Новое обращение</h3>
+                <form id="cabinetNewApplicationForm" class="cabinet-form-grid">
+                  <label class="field">
+                    <span class="field-label">Тип заявления</span>
+                    <select name="type" id="cabinetAppType" class="input" required></select>
+                  </label>
+                  <label class="field field--full">
+                    <span class="field-label">Комментарий / суть запроса</span>
+                    <textarea name="comment" class="input" rows="3" placeholder="Кратко опишите запрос"></textarea>
+                  </label>
+                  <button type="submit" class="btn btn--primary btn--ripple">Подать заявление</button>
+                </form>
+              </div>
+
+              <h3 class="cabinet-subtitle">Мои заявления</h3>
+              <div class="cabinet-table-wrap">
+                <table class="cabinet-table">
+                  <thead>
+                    <tr>
+                      <th>Номер</th>
+                      <th>Тип</th>
+                      <th>Дата подачи</th>
+                      <th>Статус</th>
+                      <th>Комментарий</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cabinetApplicationsBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="cabinetPanelNotify" class="cabinet-panel" role="tabpanel" aria-labelledby="tabNotify" hidden>
+              <h2 class="cabinet-panel-title">Уведомления</h2>
+              <p class="muted">Изменения по объектам, обременения, ход рассмотрения заявлений.</p>
+              <ul id="cabinetNotifyList" class="cabinet-notify-list"></ul>
+            </div>
+
+            <div id="cabinetPanelDocs" class="cabinet-panel" role="tabpanel" aria-labelledby="tabDocs" hidden>
+              <h2 class="cabinet-panel-title">Электронный документооборот</h2>
+              <p class="muted">Прикрепление файлов к заявлениям и загрузка выданных документов (учебный сценарий — имитация).</p>
+              <div class="card card--inset cabinet-upload-row">
+                <label class="field" style="flex:1;min-width:200px;">
+                  <span class="field-label">Прикрепить файл</span>
+                  <input type="file" id="cabinetFileInput" class="input" accept=".pdf,.jpg,.jpeg,.png,.tiff">
+                </label>
+                <button type="button" class="btn btn--secondary btn--ripple" id="cabinetUploadBtn">Загрузить</button>
+              </div>
+              <div class="cabinet-table-wrap">
+                <table class="cabinet-table">
+                  <thead>
+                    <tr>
+                      <th>Документ</th>
+                      <th>Дата</th>
+                      <th>Размер</th>
+                      <th>Направление</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="cabinetDocsBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="cabinetPanelHistory" class="cabinet-panel" role="tabpanel" aria-labelledby="tabHistory" hidden>
+              <h2 class="cabinet-panel-title">История операций</h2>
+              <p class="muted">Журнал действий в кабинете: заявления, выписки, загрузки.</p>
+              <div class="cabinet-table-wrap">
+                <table class="cabinet-table">
+                  <thead>
+                    <tr>
+                      <th>Дата</th>
+                      <th>Действие</th>
+                      <th>Детали</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cabinetHistoryBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ООО Тамбов Кадастр</strong>
+        <p class="small muted">Информационный портал. Не заменяет официальные ресурсы Росреестра и органов власти.</p>
+      </div>
+      <nav aria-label="Нижнее меню">
+        <ul class="footer-nav">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="map.html">Карта</a></li>
+          <li><a href="spatial.html">Пространственные данные</a></li>
+          <li><a href="info.html">Информация</a></li>
+          <li><a href="support.html">Поддержка</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cabinet-app.js"></script>
+</body>
+</html>

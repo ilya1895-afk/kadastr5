@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ООО Тамбов Кадастр — публичная кадастровая карта, пространственные данные и информационные сервисы.">
+  <title>ООО Тамбов Кадастр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ООО Тамбов Кадастр — на главную">
+        <img class="logo-img" src="img/logo-ooo-tk.svg" width="44" height="44" alt="" decoding="async">
+        <span class="logo-text">
+          <span class="logo-title">ООО Тамбов Кадастр</span>
+          <span class="logo-sub">Тамбовская область</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" aria-current="page">Главная</a></li>
+          <li><a href="map.html" class="nav-link">Карта</a></li>
+          <li><a href="spatial.html" class="nav-link">Пространственные данные</a></li>
+          <li><a href="info.html" class="nav-link">Информация</a></li>
+          <li><a href="support.html" class="nav-link">Поддержка</a></li>
+          <li><a href="cabinet.html" class="nav-link">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Портал компании</p>
+          <h1>ООО <span class="hero-accent">Тамбов Кадастр</span></h1>
+          <p class="lead">ООО «Тамбов Кадастр» — региональная компания в Тамбовской области: кадастровые и геоинформационные услуги, консультирование правообладателей и справочный доступ к сведениям о недвижимости через наш портал.</p>
+          <div class="hero-actions">
+            <a href="map.html" class="btn btn--primary btn--ripple">
+              <span class="btn-icon" aria-hidden="true">◇</span>
+              Открыть карту
+            </a>
+            <a href="info.html" class="btn btn--ghost btn--ripple">Новости и законы</a>
+          </div>
+          <ul class="hero-badges">
+            <li><button type="button" class="hero-badge-btn" data-badge="egrn">Актуальные данные ЕГРН*</button></li>
+            <li><button type="button" class="hero-badge-btn" data-badge="adaptive">Адаптивный интерфейс</button></li>
+            <li><button type="button" class="hero-badge-btn" data-badge="privacy">Защита персональных данных</button></li>
+          </ul>
+        </div>
+        <div class="hero-card glass">
+          <h2 class="hero-card-title">Быстрый поиск</h2>
+          <form class="quick-search" id="quickSearchForm" autocomplete="off">
+            <label class="field">
+              <span class="field-label">Кадастровый номер, адрес или координаты</span>
+              <input type="search" name="q" id="quickSearchInput" list="quickSearchList" placeholder="Например: 52.7241, 41.4482" class="input input--lg">
+              <datalist id="quickSearchList"></datalist>
+            </label>
+            <button type="submit" class="btn btn--primary btn--full btn--ripple">Найти объект</button>
+          </form>
+          <p class="fine-print">* Для получения юридически значимых сведений используйте <a href="https://rosreestr.gov.ru/" target="_blank" rel="noopener noreferrer">официальный сайт Росреестра</a> и сервисы Госуслуг.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <header class="section-head">
+          <h2>Разделы портала</h2>
+          <p>Перейдите в нужный сервис: карта, пространственные данные или информационные материалы.</p>
+        </header>
+        <div class="grid-3">
+          <article class="feature-card card-hover">
+            <div class="feature-icon" aria-hidden="true">◇</div>
+            <h3>Кадастровая карта</h3>
+            <p>Поиск объектов, границы участков, измерения, печать и обмен ссылками на фрагмент карты.</p>
+            <a href="map.html" class="link-forward">Перейти к карте →</a>
+          </article>
+          <article class="feature-card card-hover">
+            <div class="feature-icon" aria-hidden="true">▣</div>
+            <h3>Пространственные данные</h3>
+            <p>Топографические основы, земли для строительства, участки под жилую застройку.</p>
+            <a href="spatial.html" class="link-forward">Открыть раздел →</a>
+          </article>
+          <article class="feature-card card-hover">
+            <div class="feature-icon" aria-hidden="true">≡</div>
+            <h3>Информация</h3>
+            <p>Новости, законодательство и краткие справки по кадастру и регистрации прав.</p>
+            <a href="info.html" class="link-forward">Новости и законы →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ООО Тамбов Кадастр</strong>
+        <p class="small muted">Информационный портал. Не заменяет официальные ресурсы Росреестра и органов власти.</p>
+      </div>
+      <nav aria-label="Нижнее меню">
+        <ul class="footer-nav">
+          <li><a href="map.html">Карта</a></li>
+          <li><a href="spatial.html">Пространственные данные</a></li>
+          <li><a href="info.html">Информация</a></li>
+          <li><a href="support.html">Поддержка</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="badge-info-modal" role="dialog" aria-modal="true" aria-labelledby="badge-info-title" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog card glass">
+      <button type="button" class="modal-close" data-close-modal aria-label="Закрыть">×</button>
+      <h2 id="badge-info-title"></h2>
+      <p id="badge-info-text" class="muted" style="margin-bottom: 0;"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

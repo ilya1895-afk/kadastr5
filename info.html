@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Новости недвижимости, законодательство, правовые консультации по кадастру Тамбовской области.">
+  <title>Информация · ООО Тамбов Кадастр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="ООО Тамбов Кадастр — на главную">
+        <img class="logo-img" src="img/logo-ooo-tk.svg" width="44" height="44" alt="" decoding="async">
+        <span class="logo-text">
+          <span class="logo-title">ООО Тамбов Кадастр</span>
+          <span class="logo-sub">Тамбовская область</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Главная</a></li>
+          <li><a href="map.html" class="nav-link">Карта</a></li>
+          <li><a href="spatial.html" class="nav-link">Пространственные данные</a></li>
+          <li><a href="info.html" class="nav-link" aria-current="page">Информация</a></li>
+          <li><a href="support.html" class="nav-link">Поддержка</a></li>
+          <li><a href="cabinet.html" class="nav-link">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section section--alt" style="padding-top: 1.5rem;">
+      <div class="container">
+        <header class="section-head">
+          <h1>Информационные сервисы</h1>
+          <p>Новости рынка недвижимости и земельных отношений, изменения законодательства, правовые консультации.</p>
+        </header>
+        <div class="info-layout">
+          <div class="accordion" id="newsAccordion">
+            <article class="accordion-item is-open">
+              <button type="button" class="accordion-trigger" aria-expanded="true">
+                <span>Новости недвижимости и земельных отношений</span>
+                <span class="accordion-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-panel">
+                <ul class="news-list" id="newsList"></ul>
+              </div>
+            </article>
+            <article class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>Законодательство</span>
+                <span class="accordion-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-panel" hidden>
+                <ul class="plain-list">
+                  <li>Федеральный закон № 218-ФЗ «О государственной регистрации недвижимости»</li>
+                  <li>Федеральный закон № 221-ФЗ «О кадастровой деятельности»</li>
+                  <li>Земельный кодекс РФ (изменения по государственному кадастровому учёту)</li>
+                </ul>
+                <p class="small muted">Актуальные редакции публикуются на <a href="http://pravo.gov.ru/" target="_blank" rel="noopener noreferrer">pravo.gov.ru</a>.</p>
+              </div>
+            </article>
+            <article class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>Правовые консультации</span>
+                <span class="accordion-chevron" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-panel" hidden>
+                <p>Бесплатные консультации по вопросам кадастра и регистрации прав предоставляются в МФЦ и на линии поддержки Росреестра. Ниже — краткие ответы на типовые вопросы:</p>
+                <dl class="faq">
+                  <dt>Как получить выписку из ЕГРН?</dt>
+                  <dd>Через Госуслуги, МФЦ, личный кабинет на сайте Росреестра или у кадастрового инженера при обращении за межеванием.</dd>
+                  <dt>Чем отличается кадастровая стоимость от рыночной?</dt>
+                  <dd>Кадастровая стоимость используется для исчисления налогов; рыночная — фактическая цена сделки. Переоценка проводится по методике государственной оценки.</dd>
+                </dl>
+              </div>
+            </article>
+          </div>
+          <aside class="info-aside card">
+            <h2>Безопасность данных</h2>
+            <p class="small">Обработка персональных данных в соответствии с 152-ФЗ. Сведения ЕГРН предоставляются в пределах, установленных законодательством РФ. Для юридически значимых выписок и ограниченного доступа используйте <a href="https://rosreestr.gov.ru/" target="_blank" rel="noopener noreferrer">сайт Росреестра</a> и Госуслуги.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ООО Тамбов Кадастр</strong>
+        <p class="small muted">Информационный портал. Не заменяет официальные ресурсы Росреестра и органов власти.</p>
+      </div>
+      <nav aria-label="Нижнее меню">
+        <ul class="footer-nav">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="map.html">Карта</a></li>
+          <li><a href="spatial.html">Пространственные данные</a></li>
+          <li><a href="info.html">Информация</a></li>
+          <li><a href="support.html">Поддержка</a></li>
+          <li><a href="cabinet.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/info-app.js"></script>
+</body>
+</html>
